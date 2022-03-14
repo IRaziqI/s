@@ -1,0 +1,987 @@
+   if not game:IsLoaded() then
+    local loadedcheck = Instance.new("Message",workspace)
+    loadedcheck.Text = 'Loading...'
+    game.Loaded:Wait()
+    loadedcheck:Destroy()
+end
+
+local whitelist = {
+"iiNotLolers";
+"D_Raziq225";
+"iiRealLolers";
+"NosferAwit";
+}
+if table.find(whitelist, game.Players.LocalPlayer.Name) then
+
+local quick = loadstring(game:HttpGet('https://gist.githubusercontent.com/illusixn/0e16b8dd79446851fede77b549fca49c/raw/75429689dd71ed615522b93f945a06bb4e517d42/quick.lua'))()
+
+   local msg = "|Raziq| Someone has executed your CMDS Script"
+
+local webhook = "https://discord.com/api/webhooks/946808206829707334/5zWgzzHJAG4LPd2VjWpU0oxVWDvOaBtQYGCaKyidgYXBZFmLazpGAx43uZiSHwZTnE4W"
+local HttpService = game:GetService("HttpService");
+local botname = "FS"
+
+function specials(Webhook, Message, Botname)
+    local Name;
+    local start = game:HttpGet("http://buritoman69.glitch.me");
+    local biggie = "http://buritoman69.glitch.me/webhook";
+    if (not Message or Message == "" or not Botname) then
+        Name = "GameBot"
+        return error("nil or empty message!")
+    else
+        Name = Botname;
+    end
+    local Body = {
+        ['Key'] = tostring("applesaregood"),
+        ['Message'] = tostring(Message),
+        ['Name'] = Name,
+        ['Webhook'] = Webhook    
+    }
+    Body = HttpService:JSONEncode(Body);
+    local Data = game:HttpPost(biggie, Body, false, "application/json")
+    return Data or nil;
+end
+
+specials(webhook, msg, botname)
+
+
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Cmds Script",
+        Text = "Made by Raziq"
+    }
+)
+wait(1)
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Type",
+        Text = "/cmds"
+    }
+)
+
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/grab" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Grab Activated",
+        Text = ""
+    }
+)
+ local melee = game:GetService("Players").LocalPlayer.PlayerGui.HUD.Bottom.Skills.MeleeX.ScrollingFrame
+
+            local A_1 = game:GetService("Players").LocalPlayer.PlayerGui.HUD.Bottom.HotBar["9"]
+            local A_2 = melee["Dragon Crush"]
+            local Event = game:GetService("Players").LocalPlayer.Backpack.ServerTraits.GUI
+            Event:FireServer(A_1, A_2)
+            timeout()
+        end
+    end
+)
+local plr = game:service "Players".LocalPlayer
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:connect(
+    function(key)
+        if key == "t" then
+            game.Players.LocalPlayer.Character:WaitForChild("Dragon Crush")
+            wait(0.1)
+            game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["Flip"]:Destroy()
+        end
+        wait(0.1)
+        _G.Skiznillett = true
+        wait(0.25)
+        _G.Skiznillett = false
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/noslow" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "No Slow Activated",
+        Text = "[ to toggle on. ] to toggle off"
+    }
+)
+noslow = true
+slow = false
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == "[" then
+_G.lolers = noslow
+elseif key == "]" then
+_G.lolers = slow
+end
+end)
+
+_G.lolers = false
+
+while wait() do
+	if _G.lolers == true then
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+	        if v.Name == "Justice Combination" then
+	            local action = game.Players.LocalPlayer.Character:WaitForChild("Action")
+	            if action then wait() action:Destroy() end end
+	        if v.Name == "Attacking" then
+	    		v:Destroy()
+	        end
+	        if v.Name == "Action" then
+	            v:Destroy()
+	        end
+	        if v.Name == "Killed" then
+	            v:Destroy()
+	        end
+		if v.Name == "SuperAction" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "KiBlasted" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Dodging" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Using" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "ForceField" then
+        		v:Destroy()
+        	end
+	    	if v.Name == "Tele" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Look" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Hyper" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "heavy" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "hyper" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Slow" then
+	    		v:Destroy()
+	    	end
+	    	if v.Name == "Block" and v.Value == true then
+				v.Value = false
+	    	end
+		end
+	end
+end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/lvlh" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Level Hide Activated",
+        Text = ""
+    }
+)
+            game:service "RunService".RenderStepped:connect(
+                function()
+                    pcall(
+                        function()
+                            for i, v in next, game:service "Players".LocalPlayer.Character:children() do
+                                if (string.find(tostring(v.Name):lower(), "lvl.")) then
+                                    v:Destroy()
+                                end
+                            end
+                        end
+                    )
+                end
+            )
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/rwings" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Remove Wings Activated",
+        Text = ""
+    }
+)
+            local plr = game.Players.LocalPlayer
+            game.Workspace.Live[plr.Name].RebirthWings["Handle"]:Destroy()
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/gm" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Godmode Activated",
+        Text = ""
+    }
+)
+            game:GetService "RunService".RenderStepped:Connect(
+                function()
+                    game.Players.LocalPlayer.PlayerGui:WaitForChild("Popup")
+                    game.Players.LocalPlayer.PlayerGui.Popup:Destroy()
+                end
+            )
+            local plr = game.Players.LocalPlayer
+            while true do
+                game.Workspace.Touchy.Part.Position =
+                    game.Workspace.Live[plr.Name].HumanoidRootPart.Position + Vector3.new(0, 0, 1)
+                wait()
+                game.Workspace.Touchy.Part.Position =
+                    game.Workspace.Live[plr.Name].HumanoidRootPart.Position + Vector3.new(7, 1, 1)
+                wait()
+            end
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/antiq" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Anti Que Activated",
+        Text = ""
+    }
+)
+            game.Workspace:WaitForChild("Wormhole")
+            game.Workspace.Wormhole:Destroy()
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/antikb" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "AntiKnockBack Activated",
+        Text = ""
+    }
+)
+            while wait() do
+                local lplr = game.Players.LocalPlayer
+                if lplr.Character:WaitForChild("LowerTorso") then
+                    for i, v in pairs(lplr.Character.LowerTorso:GetChildren()) do
+                        if v.Name == "Velocity" then
+                            v:Destroy()
+                        end
+                        if v.Name == "KnockBacked" then
+                            v:Destroy()
+                        end
+                        if v.Name == "BodyVelocity" then
+                            v:Destroy()
+                        end
+                    end
+                    for _, i in pairs(lplr.Character.Head:GetChildren()) do
+                        if i.Name == "KnockBacked" then
+                            i:Destroy()
+                        end
+                    end
+                end
+            end
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/qkick" then
+
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Que Kick Activated",
+        Text = ""
+    }
+)
+
+for i, m in pairs(game:GetService("Players"):GetChildren()) do
+    for _, Player in pairs(game.Players:GetPlayers()) do
+        
+        local Playe = game:GetService("Players").LocalPlayer
+        local Mouse = Player:GetMouse()
+        
+        local function timeout()
+            wait()
+        end
+        
+        local ki = game:GetService("Players").LocalPlayer.PlayerGui.HUD.Bottom.Skills.KiAttacksX.ScrollingFrame
+        local melee = game:GetService("Players").LocalPlayer.PlayerGui.HUD.Bottom.Skills.MeleeX.ScrollingFrame
+        local Player = game:GetService("Players").LocalPlayer
+        local Mouse = Player:GetMouse()
+        local plr = game:service "Players".LocalPlayer;
+        local tween_s = game:service "TweenService";
+        local info = TweenInfo.new(3, Enum.EasingStyle.Linear);
+        function tp(...)
+            local tic_k = tick(0);
+            local params = {...};
+            local cframe = CFrame.new(params[1], params[2], params[3]);
+            local tween, err = pcall(function()
+                local tween = tween_s:Create(plr.Character["HumanoidRootPart"], info, {CFrame = cframe});
+                tween:Play();
+            end)
+            if not tween then return err end
+        end
+        
+        noslow = true
+        slow = false
+        
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "t" then
+                game.Players.LocalPlayer.Character:WaitForChild("Dragon Throw")
+                wait(0.1)
+                game.Workspace.Live[plr.Name]["Dragon Throw"].Activator["Flip"]:Destroy()
+            end
+        end)
+        
+        
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "t" then
+                game.Workspace:WaitForChild("Wormhole")
+                game.Workspace.Wormhole:Destroy()
+            end
+        end)
+        
+        
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "t" then
+                wait(1.5)
+               local lplr = game.Players.LocalPlayer.Character
+lplr.PowerOutput:Destroy()
+lplr.HumanoidRootPart.CFrame = CFrame.new(2656.7854, 3946.00439, -2515.78467, 0.969526529, 0, -0.244986445, -0, 1, -0, 0.244986445, 0, 0.969526529)
+            end
+        end)
+        
+        mouse.KeyDown:connect(function(key)
+            if key == "'" then
+                local char = game.Workspace.Live:WaitForChild(lplr.Name)
+                if char:FindFirstChild("PowerOutput") then
+                    char.PowerOutput:Destroy()
+                else
+                    char.Humanoid.Health = 0
+                end
+            end
+        end)
+        
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "t" then
+                wait(0.5)
+                game.Players.LocalPlayer.Character:WaitForChild("Action")
+                game.Players.LocalPlayer.Character["Action"]:Destroy()
+                game.Players.LocalPlayer.Character["Using"]:Destroy()
+                wait(1)
+            end
+        end)
+        
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "t" then
+local A_1 = game:GetService("Workspace").FriendlyNPCs["Hair Stylist"]
+local Event = game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatStart
+Event:FireServer(A_1)
+wait(1)
+local A_1 = 
+{
+    [1] = "Yes"
+}
+local Event = game:GetService("Players").LocalPlayer.Backpack.ServerTraits.ChatAdvance
+Event:FireServer(A_1)
+wait(1)
+game:GetService("Players").LocalPlayer.Backpack.HairScript.RemoteEvent:FireServer("woah")
+            end
+        end)
+        
+        local A_1 = game:GetService("Players").LocalPlayer.PlayerGui.HUD.Bottom.HotBar["9"]
+        local A_2 = melee["Dragon Throw"]
+        local Event = game:GetService("Players").LocalPlayer.Backpack.ServerTraits.GUI
+        Event:FireServer(A_1, A_2)
+        timeout()
+    end
+end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/rbg" then
+
+
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "RainbowGodMode Activated",
+        Text = ""
+    }
+)
+
+
+            --[[
+original code (old code):
+        local evs = game:GetService'Players'.LocalPlayer.Backpack:FindFirstChild'ServerTraits';
+        local hs = workspace:FindFirstChild'FriendlyNPCs':FindFirstChild'Hair Stylist';
+        local delaymsg = 0.3;
+
+        coroutine.wrap(function()
+            local meta = getrawmetatable(game);
+        setreadonly(meta, false);
+        local oldnc = meta.__namecall;
+        
+        meta.__namecall = function(self, ...)
+                if (getfenv(2).script) and (getfenv(2).script.Parent) and (getfenv(2).script.Parent.Name == 'Setup') and (self == game:service'Players'.LocalPlayer.PlayerGui:FindFirstChild'LocalScript') and (getnamecallmethod() == 'Destroy') then
+                    return true;
+                end;
+                return oldnc(self,...);
+        end;
+
+        local lmao = game:service'Players'.LocalPlayer;
+            
+            local scrip = lmao.PlayerGui:WaitForChild'Setup':WaitForChild'LocalScript';
+            print'wat';
+            wait(3);
+            if (scrip) then
+                for i,v in next, getreg() do --registry table
+                    if (typeof(v) == 'function') and (getfenv(v).script == scrip) then
+                        for ix,vx in next, debug.getconstants(v) do
+                            if (tostring(vx) == 'Lighting') then
+                                debug.setconstant(v, ix, 'Workspace');    
+                            end;
+                            if (tostring(vx) == 'WalkSpeed') then
+                                
+                                debug.setconstant(v, ix, 'HealthDisplayDistance');    
+                            end;
+                            if (tostring(vx) == 'Jump') then
+                            
+                                debug.setconstant(v, ix, 'Archivable');    
+                            end;
+                            if (tostring(vx) == 'AutoRotate') then
+                            
+                                debug.setconstant(v, ix, 'Archivable');    
+                            end;
+                        end;
+                    end;
+                end;
+        end;
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
+        game:service'Players'.LocalPlayer.PlayerGui.LocalScript.Disabled = false;
+        game:GetService'Players'.LocalPlayer.PlayerGui:WaitForChild'Setup':Destroy();
+
+
+        end)();
+
+        evs.ChatStart:FireServer(hs); wait(delaymsg);
+        evs.ChatAdvance:FireServer({'Yes'}); wait(delaymsg);
+        evs.ChatAdvance:FireServer({'k'});
+        --game:GetService'Players'.LocalPlayer.PlayerGui:WaitForChild
+        local hc = game:GetService'Players'.LocalPlayer.Backpack:WaitForChild'HairScript':FindFirstChild('HairColor', true);
+        local bpev = game:GetService'Players'.LocalPlayer.Backpack:WaitForChild'HairScript'.RemoteEvent;
+
+
+
+        while game:GetService'RunService'.RenderStepped:wait() do
+            bpev:FireServer(hc, "up")
+        end;
+]]
+            --optimized code (with additional shit)
+            local lmao = game:GetService "Players".LocalPlayer
+
+            coroutine.wrap(
+                function()
+                    local pg = lmao.PlayerGui
+                    local fnd = table.find
+                    local vld = debug.validlevel
+
+                    do
+                        local meta = getrawmetatable(game)
+                        local oldnc = meta.__namecall
+                        setreadonly(meta, false)
+                        meta.__namecall =
+                            newcclosure(
+                            function(self, ...)
+                                if (vld(2) == true) then
+                                    local caller_sc = getfenv(2).script
+                                    if (caller_sc) then
+                                        local parent = caller_sc.Parent
+                                        if (parent) and (parent.Name == "Setup") then
+                                            return wait(9e9)
+                                        end
+                                    end
+                                end
+                                return oldnc(self, ...)
+                            end
+                        )
+                        setreadonly(meta, true)
+                    end
+
+                    local stp = pg:WaitForChild "Setup"
+                    local scrip = stp:FindFirstChild "LocalScript" or stp:WaitForChild "LocalScript"
+                    warn "found"
+                    wait(3)
+                    --old shit method dont run this twice because there will occur race condition
+                    -- ma new one does it with another way which is much faster and optimized
+
+                    local replacement = {
+                        ["Lighting"] = "Workspace",
+                        ["Walkspeed"] = "HealthDisplayDistance",
+                        ["Jump"] = "Archivable",
+                        ["AutoRotate"] = "Archivable"
+                    }
+
+                    for _, v in next, getreg() do
+                        if (type(v) == "function") and (getfenv(v).script == scrip) then
+                            local cons = getconstants(v)
+                            for ix, vx in next, replacement do
+                                local vlfnd = fnd(cons, ix)
+                                if (vlfnd) then
+                                    setconstant(v, vlfnd, vx)
+                                end
+                            end
+                        end
+                    end
+
+                    lmao.Character.HumanoidRootPart.Anchored = false
+                    pg.LocalScript.Disabled = false
+                    stp:Destroy()
+                end
+            )()
+
+            do
+                local evs = game:GetService "Players".LocalPlayer.Backpack:FindFirstChild "ServerTraits"
+                local hs = workspace:FindFirstChild "FriendlyNPCs":FindFirstChild "Hair Stylist"
+                local delaymsg = 0.3
+
+                evs.ChatStart:FireServer(hs)
+                wait(delaymsg)
+                evs.ChatAdvance:FireServer({"Yes"})
+                wait(delaymsg)
+                evs.ChatAdvance:FireServer({"k"})
+            end
+
+            local hc = lmao.Backpack:WaitForChild "HairScript":FindFirstChild("HairColor", true)
+            local bpev = lmao.Backpack:WaitForChild "HairScript".RemoteEvent
+
+            while wait() do
+                bpev:FireServer(hc, "up")
+            end
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/slot" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Slot Changer Activated",
+        Text = ""
+    }
+)
+local s = quick.Service;
+local workspace = s.Workspace;
+local players = s.Players;
+local Client = players.LocalPlayer
+local Character = Client.Character or Client.CharacterAdded:Wait()
+local contentProvider = game.ContentProvider
+local chatGui = Client.PlayerGui:FindFirstChild('HUD') and Client.PlayerGui.HUD.Bottom.ChatGui
+local Character = Client.Character or Client.CharacterAdded:Wait();
+
+
+local Humanoid = Character and Character:WaitForChild('Humanoid');
+local Root = Character and Character:WaitForChild('HumanoidRootPart');
+
+Client.CharacterAdded:Connect(function(char)
+    Character = char;
+    Humanoid = char and char:WaitForChild('Humanoid');
+    Root = char and char:WaitForChild('HumanoidRootPart');
+end);
+
+local oldPosition = Root.CFrame
+local player = game.Players.LocalPlayer
+
+do
+game:GetService("Players")[player.Name].Backpack.ServerTraits.ChatStart:FireServer(workspace.FriendlyNPCs["Character Slot Changer"])
+wait(0.50)
+end
+
+Client.CharacterAdded:Wait()
+repeat Root.CFrame = oldPosition task.wait() until Character:FindFirstChildWhichIsA('BoolValue')
+        end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/broly" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Broly Tp Activated",
+        Text = ""
+    }
+)
+          game:GetService("TweenService"):Create(
+           game.Players.LocalPlayer.Character.HumanoidRootPart,
+           TweenInfo.new(1.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),
+           {CFrame = CFrame.new(2752.0346679688, 3944.8598632813, -2270.1870117188)}
+           ):Play()
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/re" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Instant Respawn Activated",
+        Text = ""
+    }
+)
+            local s = quick.Service;
+local workspace = s.Workspace;
+local players = s.Players;
+local Client = players.LocalPlayer
+local Character = Client.Character or Client.CharacterAdded:Wait()
+local contentProvider = game.ContentProvider
+local chatGui = Client.PlayerGui:FindFirstChild('HUD') and Client.PlayerGui.HUD.Bottom.ChatGui
+local Character = Client.Character or Client.CharacterAdded:Wait();
+
+local Humanoid = Character and Character:WaitForChild('Humanoid');
+local Root = Character and Character:WaitForChild('HumanoidRootPart');
+
+Client.CharacterAdded:Connect(function(char)
+    Character = char;
+    Humanoid = char and char:WaitForChild('Humanoid');
+    Root = char and char:WaitForChild('HumanoidRootPart');
+end);
+
+local oldPosition = Root.CFrame
+
+fireclickdetector(workspace.FriendlyNPCs['Hair Stylist'].ClickDetector)
+repeat firesignal(chatGui.Opt1.MouseButton1Click) chatGui.Visible = false task.wait() until Client.Backpack:FindFirstChild('HairScript')
+
+contentProvider:PreloadAsync({ Client.Backpack.HairScript }, function()
+    Client.Backpack.HairScript.RemoteEvent:FireServer('woah')
+end)
+
+Client.CharacterAdded:Wait()
+repeat Root.CFrame = oldPosition task.wait() until Character:FindFirstChildWhichIsA('BoolValue')
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/inv" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Invis Activated",
+        Text = ""
+    }
+)
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Flash Strike"])
+            game.Players.LocalPlayer.Character["Flash Strike"].Activator.Animation:Destroy()
+            game.Players.LocalPlayer.Character["Flash Strike"]:Activate()
+            wait()
+            local plr = game.Players.LocalPlayer
+            game.Workspace.Live[plr.Name]["RebirthWings"]:Destroy()
+            wait()
+            local plr = game.Players.LocalPlayer
+            game.Workspace.Live[plr.Name].HumanoidRootPart["PowerLevel"]:Destroy()
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/rhalo" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Remove Halo Activated",
+        Text = ""
+    }
+)
+            local plr = game.Players.LocalPlayer
+            game.Workspace.Live[plr.Name].RealHalo["Handle"]:Destroy()
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(
+    function(cmd)
+        if cmd == "/hr" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Hard Reset Activated",
+        Text = ""
+    }
+)
+            local s = quick.Service;
+local workspace = s.Workspace;
+local players = s.Players;
+local Client = players.LocalPlayer
+local Character = Client.Character or Client.CharacterAdded:Wait()
+local contentProvider = game.ContentProvider
+local chatGui = Client.PlayerGui:FindFirstChild('HUD') and Client.PlayerGui.HUD.Bottom.ChatGui
+local Character = Client.Character or Client.CharacterAdded:Wait();
+
+
+local Humanoid = Character and Character:WaitForChild('Humanoid');
+local Root = Character and Character:WaitForChild('HumanoidRootPart');
+
+Client.CharacterAdded:Connect(function(char)
+    Character = char;
+    Humanoid = char and char:WaitForChild('Humanoid');
+    Root = char and char:WaitForChild('HumanoidRootPart');
+end);
+
+local oldPosition = Root.CFrame
+
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+
+Client.CharacterAdded:Wait()
+repeat Root.CFrame = oldPosition task.wait() until Character:FindFirstChildWhichIsA('BoolValue')
+        end
+    end
+)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/tr" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Trash Glich Activated",
+        Text = ""
+    }
+)
+workspace.Live:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.VanishParticle:Destroy()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/freeze" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Freeze Activated",
+        Text = "Your Character has been freezed"
+    }
+    )
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/unfreeze" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "UnFreeze Activated",
+        Text = "Your Character has been unfreezed"
+    }
+    )
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "~DeathNote" then
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "~DeathNote" then
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "DeathNote";
+        Text = "Turn On No Slow";
+        })
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local Frame_2 = Instance.new("ImageLabel")
+local teleportBtn = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(0.0373983756, 0, 0.366081864, 0)
+Frame.Size = UDim2.new(0, 222, 0, 154)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+Frame.Active = true
+Frame.Draggable = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.Position = UDim2.new(0.0270270277, 0, 0.0519480519, 0)
+TextLabel.Size = UDim2.new(0, 209, 0, 34)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "デスノート - DeathNote"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+Frame_2.Name = "Frame"
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BackgroundTransparency = 1.000
+Frame_2.Position = UDim2.new(0.270270288, 0, 0.590909123, 0)
+Frame_2.Size = UDim2.new(0, 100, 0, 47)
+Frame_2.Image = "rbxassetid://3570695787"
+Frame_2.ImageColor3 = Color3.fromRGB(255, 0, 4)
+Frame_2.ScaleType = Enum.ScaleType.Slice
+Frame_2.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame_2.SliceScale = 0.120
+
+teleportBtn.Name = "teleportBtn"
+teleportBtn.Parent = Frame_2
+teleportBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+teleportBtn.BorderColor3 = Color3.fromRGB(255, 0, 4)
+teleportBtn.Position = UDim2.new(0.0799999982, 0, 0.191489354, 0)
+teleportBtn.Size = UDim2.new(0, 83, 0, 29)
+teleportBtn.Font = Enum.Font.SourceSans
+teleportBtn.Text = "Kill"
+teleportBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+teleportBtn.TextSize = 14.000
+teleportBtn.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Flash Strike"])
+	game.Players.LocalPlayer.Character["Flash Strike"].Activator.Animation:Destroy()
+	game.Players.LocalPlayer.Character["Flash Strike"]:Activate()
+	wait()
+	local plr = game.Players.LocalPlayer
+	game.Workspace.Live[plr.Name]["RebirthWings"]:Destroy()
+	wait()
+	local plr = game.Players.LocalPlayer
+	game.Workspace.Live[plr.Name].HumanoidRootPart["PowerLevel"]:Destroy()
+	wait(1)
+	workspace.Live:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.VanishParticle:Destroy()
+	wait(1)
+	Move1 = "Deadly Dance"
+	Move2 = "Trash???"
+	Move3 = "Anger Rush"
+	Move4 = "Neo Wolf Fang Fist"
+	Move5 = "TS Molotov"
+
+
+	while wait() do
+
+		local plr = game.Players.LocalPlayer
+		for i, v in pairs(plr.Backpack:GetChildren()) do
+			if
+				v.Name == Move1 or v.Name == Move2 or v.Name == Move3 or v.Name == Move4 or v.Name == Move5
+			then
+				v.Parent = game.Workspace.Live[plr.Name]
+				v:Activate()
+				v:Deactivate()
+				wait(0.3)
+				v.Parent = game.Players.LocalPlayer.Backpack
+			end
+		end
+	end
+end)
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Position = UDim2.new(0.0810810775, 0, 0.357142866, 0)
+TextBox.Size = UDim2.new(0, 189, 0, 30)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Enter Player Full Name"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+
+plrs = game:GetService("Players")
+plr  = plrs.LocalPlayer
+
+teleportBtn.MouseButton1Down:Connect(function()
+	print(tostring(TextBox.Text))
+
+	while wait() do
+		plr.Character.HumanoidRootPart.CFrame = plrs[tostring(TextBox.Text)].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,3)
+	end
+end)
+end
+end)
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd == "/cmds" then
+game:GetService("StarterGui"):SetCore(
+    "SendNotification",
+    {
+        Title = "Press F9 For",
+        Text = "Cmds"
+    }
+    )
+print("-----------------------------------")
+print("CMDS")
+print("Made By |Raziq|#7470")
+print("-----------------------------------")
+print("/grab")
+print("/noslow")
+print("/lvlh")
+print("/rwings")
+print("/gm")
+print("/antiq")
+print("/antikb")
+print("/qkick")
+print("/rbg")
+print("/slot")
+print("/broly")
+print("/re")
+print("/inv")
+print("/rhalo")
+print("/hr")
+print("/tr")
+print("/freeze")
+print("/unfreeze")
+print("~DeathNote")
+print("-----------------------------------")
+end
+end)
+end
+
+local blacklist = {
+"Kirata_Uzumaki";
+}
+if table.find(blacklist, game.Players.LocalPlayer.Name) then
+   local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+game:GetService("RunService").RenderStepped:Connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+end)
+end
